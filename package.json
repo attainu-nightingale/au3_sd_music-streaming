@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/attainu-nightingale/au3_sd_music-streaming#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "spotify-web-api-node": "^4.0.0"
   }
 }
