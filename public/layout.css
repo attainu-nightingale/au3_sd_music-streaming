@@ -1,0 +1,187 @@
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000000f1;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: rgb(255, 255, 255);
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.wrapper {
+    display: block;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: rgba(0, 0, 0, 0.719);
+    color: #fff;
+    transition: all 0.3s;
+     min-width: 250px;
+     max-width: 250px;
+     height: 100vh;
+     position: fixed;
+     top: 0;
+     left: 0;
+     /* top layer */
+     z-index: 9999;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    /* background: #6d7fcc; */
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    /* background: #6d7fcc; */
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: rgb(61, 90, 209);
+    background: #fff;
+}
+
+/* #sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #1c42f0;
+} */
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+/* .overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    /* width: 100vw;
+    height: 100vh; */
+    /* transparent black */
+    /* background: rgba(0, 0, 0, 0);
+    middle layer, i.e. appears below the sidebar */
+    /* z-index: 998;
+    opacity: 0; */
+    /* animate the transition */
+    /* transition: all 0.5s ease-in-out; }
+ */
+
+/* display .overlay when it has the .active class */
+.overlay.active {
+    display: block;
+    opacity: 1;
+    background: rgba(211, 203, 203, 0);
+}
+
+#dismiss {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top right corner of the sidebar */
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.active {
+    color: black;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.display {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.display {
+        margin-left: 0;
+    }
+}
+
+#navbar-top {
+    background-color: rgba(32, 32, 32, 0.651);
+    color: white;
+    z-index: 9998;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+}
+
+.fa-align-left {
+    color: white;
+}
+
+#logo {
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+#search-keywords {
+    border-radius: 15px;
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: #fff;
+}
+
+::placeholder {
+    color: #fff;
+}
+
+.fa-search {
+    color: white;
+}
+
+.fa-cog,
+.fa-male {
+  font-size: 27px;
+  margin-left: 15px;
+}
