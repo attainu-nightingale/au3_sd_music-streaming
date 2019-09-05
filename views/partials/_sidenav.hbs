@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Musify<img src="./icons8-music-64.png" alt="Music-logo"></h3>
+        </div>
+
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item mt-2 mb-2 {{#is title "Musify"}} active {{/is}}">
+                <a class="nav-link" href="/"><i class="fas fa-home mr-3"></i> Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item mt-2 mb-2 {{#is title "Library"}} active {{/is}}">
+                <a class="nav-link" href="/library"><i class="fas fa-book-open mr-3"></i>Library</a>
+            </li>
+            <li class="nav-item mt-2 mb-2 {{#is title "Playlist"}} active {{/is}}">
+                <a class="nav-link" href="#"><i class="fas fa-play mr-3"></i> Playlist</a>
+            </li>
+            <li class="nav-item mt-2 mb-2 {{#is title "Login"}} active {{/is}}">
+                <a class="nav-link" href="#"><i class="fas fa-sign-in-alt mr-3"></i> Login</a>
+            </li>
+            <li class="nav-item mt-2 mb-2 {{#is title "Sign Up"}} active {{/is}}">
+                <a class="nav-link" href="#"><i class="fas fa-user-plus mr-3"></i> Signup</a>
+            </li>
+            <li class="nav-item mt-2 mb-2 {{#is title "About"}} active {{/is}}">
+                <a class="nav-link" href="#"><i class="fas fa-address-card mr-3"></i> About Us</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Page Content -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-md" id="navbar-top">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn" style="background-color: black;">
+                    <i class="fas fa-align-left"></i>
+                    {{!-- <span>Toggle Sidebar</span> --}}
+                </button>
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="search-keywords" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-male"></i></a>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
