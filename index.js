@@ -3,6 +3,7 @@ var hbs = require('hbs');
 
 var app = express();
 
+
 // load router
 var homeRouter = require('./routes/home');
 
@@ -43,7 +44,7 @@ app.get('/playlist', function (req, res) {
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function (req, res) {
     res.send('<h1>what??? page not found!</h1>', 404);
-});
+
 
 app.listen(3000,function(req,res){
     console.log("listening at 3000");
