@@ -45,7 +45,7 @@ app.get('/playlist', function (req, res) {
 app.get('*', function (req, res) {
     res.send('<h1>what??? page not found!</h1>', 404);
 
-
+});
 app.listen(3000,function(req,res){
     console.log("listening at 3000");
 }
