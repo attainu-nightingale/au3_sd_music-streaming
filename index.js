@@ -3,6 +3,7 @@ var hbs = require('hbs');
 
 var app = express();
 
+
 // load router
 var homeRouter = require('./routes/home');
 
@@ -33,18 +34,18 @@ app.use('/', homeRouter);
 
 
 
-app.get('/library', function (req, res) {
-    res.render('library', {
-        title: 'Library'
+app.get('/playlist', function (req, res) {
+    res.render('playlist', {
+        title: 'Playlist'
     });
 });
 
 
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function (req, res) {
+    res.send('<h1>what??? page not found!</h1>', 404);
 
-app.get('/library',function(req,res){
-    res.send("this is library")
 });
-
 app.listen(3000,function(req,res){
     console.log("listening at 3000");
 }

@@ -1,0 +1,60 @@
+<style>
+    #audio0{
+    width: 40%;
+    position:absolute;
+    left:30%;
+    top:10px;
+}
+
+.fixed-bottom{
+    background-color: black;
+    display:block;
+    height:70px;
+} 
+
+.btn-inline {
+    background-color: black;
+    color:#0575E6;
+    position: absolute;
+    top:10px;
+    display:inline-block;
+    margin:5px;
+    font-size:20px;
+}
+.btn-inline:hover{
+    color:#00F260;
+    
+}
+#next{
+    position: absolute;
+    left:70%;
+}
+#prev{
+    position: absolute;
+    left:25%;
+}
+#loop{
+    position: absolute;
+    left:20%;
+}
+#random{
+    position: absolute;
+    left:75%;
+}
+#plus{
+    position: absolute;
+    left:85%;
+}
+</style>
+
+ <div class="fixed-bottom ">
+        <div class="container">
+        <audio id="audio0" src="{{audioThree.preview_url}}"controls volume autoplay loop preload></audio>
+            <button type="button" class=" btn-inline"  id="prev"><i class="fas fa-backward "></i></button>
+            <button type="button" class=" btn-inline" id="next"><i class="fas fa-forward "></i></button>
+            <button type="button" class=" btn-inline" id="loop"><i class="fas fa-undo"></i></button>
+            <button type="button" class=" btn-inline" id="random"><i class="fas fa-random"></i></button>
+            <button type="button" class=" btn-inline" id="plus"><i class="fas fa-plus"></i>playlist</button>
+    </div>
+ </div>
+
