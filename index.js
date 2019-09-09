@@ -6,6 +6,7 @@ var app = express();
 
 // load router
 var homeRouter = require('./routes/home');
+//var playlistRouter=require('./routes/playlist');
 
 // hbs middleware
 app.set('view engine', 'hbs');
@@ -32,7 +33,7 @@ hbs.registerHelper('is', function (parameter, string, options) {
 // use router
 app.use('/', homeRouter);
 
-
+//app.use("/playlist", playlistRouter)
 
 app.get('/playlist', function (req, res) {
     res.render('playlist', {

@@ -1,1 +1,34 @@
-<h1>Welcome to Playlist page</h1>
+<div class="container">
+    <div class="row">
+        {{#each data }}
+        <div class="col-md-4">
+            <div class="card bg-secondary">
+                <img src="{{ this.albumImage }}" class="card-img-top img-fluid" alt="{{this.name}}">
+
+                <div class="card-body">
+                    <h5 class="card-title text-white"> {{ this.name }} </h5>
+                    <button class="btn btn-danger float-right">Delete</button>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each this.songs }}
+                    <li class="list-group-item">
+                        <p class="mt-0 mb-1">{{ this.name }}</p>
+
+                        <audio controls>
+                            <source src="{{ this.audiosrc }}" type="audio/ogg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </li>
+                    {{/each}}
+
+
+                </ul>
+
+            </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>
