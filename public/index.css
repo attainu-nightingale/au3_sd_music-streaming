@@ -9,6 +9,8 @@
 
 .album-name {
     color: rgb(255, 255, 255);
+    word-break: break-all;
+    white-space: normal;
 }
 
 #cover-name {
@@ -46,10 +48,13 @@
 
 }
 
-#home {
+#home-title {
     padding-top: 54px;
 }
 
+#home {
+    margin-bottom: 6%;
+}
 .overlay {
     position: absolute;
     width: 100%;
@@ -73,7 +78,7 @@
 }
 
 .first {
-   z-index: 2;
+   z-index: 10;
    width: 30%;
    position: absolute;
    right: 2%;
@@ -81,9 +86,37 @@
 }
 
 .second {
-    z-index: 2;
+    z-index: 10;
     width: 30%;
     position: absolute;
     right: 2%;
     bottom: 27%;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    z-index: 3;
+    height: auto;
+    width: 35px;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.btn-circle .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.btn-circle:hover .tooltiptext {
+    visibility: visible;
 }
