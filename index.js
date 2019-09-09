@@ -39,12 +39,6 @@ app.use('/', homeRouter);
 app.use("/playlist", playlistRouter)
 
 
-app.get('/playlist', function (req, res) {
-    res.render('playlist', {
-        title: 'Playlist'
-    });
-});
-
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function (req, res) {
