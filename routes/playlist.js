@@ -48,49 +48,15 @@ router.get("/", function (req, res) {
 
 //route for adding song to a playlist
 router.post('/add', function (req, res) {
-    spotifyApi.getAlbums(['7LF4N7lvyDhrPBuCJ1rplJ'])
-        .then(function (data) {
-            var songAlbums = data.body.albums[0]
+    var audioSrc = req.body.audioSrc
+    var songName = req.body.songName
 
-            var { name: albumName, tracks, images, genres, href: albumHref, artists } = songAlbums;
-            var { items } = tracks;
-            var songs = [];
-
-
-            var myImg = images[0].url
-
-            for (var i = 0; i < items.length; i++) {
-                var { name, id, href } = items[i];
-                songs.push({
-                    id: id,
-                    name: name,
-                    audiosrc: href,
-                    img: myImg,
-                    artist: artists,
-                    genre: genres,
-                    album: albumHref,
-                })
-            }
-
-
-            var myPlaylist = {
-                _id: ObjectID(new ObjectID()),
-                name: albumName,
-                albumImage: myImg,
-                songs: songs
-            }
-            db.collection('playlists').updateOne({ _id: ObjectID("5d7320f2807f48022853ca5d") }, { $push: { playlists: myPlaylist } }, function (err, result) {
-                if (err) throw err
-                res.json({
-                    success: "playlist successfully added"
-                })
-            })
-
-        }, function (err) {
-            res.status(500).json({
-                error: "Server error"
-            })
-        });
+    db.collection("playlists").insertOne({ audioSrc, songName }, function (err, result) {
+        if (err) throw err
+        res.json({
+            success: "Added successfully"
+        })
+    })
 })
 
 //route for delete 

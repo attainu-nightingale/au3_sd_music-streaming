@@ -1,4 +1,4 @@
-var express=require("express");
+var express = require("express");
 var hbs = require('hbs');
 
 var app = express();
@@ -6,6 +6,9 @@ var app = express();
 
 // load router
 var homeRouter = require('./routes/home');
+
+// Plyalist router
+var playlistRouter = require('./routes/playlist')
 
 // hbs middleware
 app.set('view engine', 'hbs');
@@ -32,6 +35,8 @@ hbs.registerHelper('is', function (parameter, string, options) {
 // use router
 app.use('/', homeRouter);
 
+// playlist router
+app.use("/playlist", playlistRouter)
 
 
 app.get('/playlist', function (req, res) {
@@ -46,7 +51,7 @@ app.get('*', function (req, res) {
     res.send('<h1>what??? page not found!</h1>', 404);
 
 });
-app.listen(3000,function(req,res){
+app.listen(3000, function (req, res) {
     console.log("listening at 3000");
 }
 );
