@@ -118,7 +118,7 @@ app.get("/logout", function (req, res) {
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function (req, res) {
-    res.send('<h1>what??? page not found!</h1>', 404);
+    res.status(404).send('<h1>what??? page not found! 404</h1>');
 
 });
 

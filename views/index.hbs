@@ -1,5 +1,5 @@
-
-    <h3 class="mt-3 mb-4 text-center" id="home">Trending Today</h3>
+    <div class="container-fluid" id="home">
+    <h3 class="mt-3 mb-4 text-center" id="home-title">Trending Today</h3>
     <div class="row">
         <div class="col-12 col-lg-6 col-md-12 col-sm-12  ml-0">
             <img id="cover-img" class="img-fluid" src="{{seventhAlbumImage}}" alt="Card image cap">
@@ -8,88 +8,107 @@
             {{!-- <audio controls src={{audioOne.preview_url}} class="cover-audio"></audio> --}}
             <h3 id="cover-name">Welcome to Musify!</h3>
         </div>
-        <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
-            <div class="card text-center" style="width: 12rem;">
+        <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0" id="one">
+            <div  class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{firstAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioOne.preview_url}}">
                 </div>
-                <audio controls src={{audioOne.preview_url}} class="second"></audio>
-                <h5 class="album-name pt-4 pb-4">{{firstAlbumName}}</h5>
+                {{!-- <audio controls src={{audioOne.preview_url}} class="second"></audio> --}}
+                <h5 class="album-name pt-4 pb-2">{{firstAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{secondAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioTwo.preview_url}}">
                 </div>
-                <audio controls src={{audioTwo.preview_url}} class="second"></audio>
-                <h5 class="album-name pt-4 pb-4">{{secondAlbumName}}</h5>
+                {{!-- <audio controls src={{audioTwo.preview_url}} class="second"></audio> --}}
+                <h5 class="album-name pt-4 pb-2">{{secondAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{thirdAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioThree.preview_url}}">
                 </div>
-                <audio controls src={{audioThree.preview_url}} class="second"></audio>
-                <h5 class="album-name pt-4 pb-4">{{thirdAlbumName}}</h5>
+                {{!-- <audio controls src={{audioThree.preview_url}} class="second"></audio> --}}
+                <h5 class="album-name pt-4 pb-2">{{thirdAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
     </div>
     <h3 class="mt-3 mb-4 text-center">Weekly Top Songs</h3>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{fourthAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioFour.preview_url}}">
                 </div>
-                <audio controls src={{audioFour.preview_url}} class="first"></audio>
+                {{!-- <audio controls src={{audioFour.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4" id="four">{{fourthAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{fifthAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioFive.preview_url}}">
                 </div>
-                <audio controls src={{audioFour.preview_url}} class="first"></audio>
+                {{!-- <audio controls src={{audioFive.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{fifthAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{sixthAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioSix.preview_url}}">
                 </div>
-                <audio controls src={{audioFour.preview_url}} class="first"></audio>
+                {{!-- <audio controls src={{audioSix.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4" id="six">{{sixthAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{seventhAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioSeven.preview_url}}">
                 </div>
-                <audio controls src={{audioFour.preview_url}} class="first"></audio>
-                <h5 class="album-name pt-4 pb-4">{{seventhAlbumName}}</h5>
+                {{!-- <audio controls src={{audioSeven.preview_url}} class="first"></audio> --}}
+                <h5 class="album-name pt-4 pb-1">{{seventhAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{eigthAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioEigth.preview_url}}">
                 </div>
-                <audio controls src={{audioFive.preview_url}} class="first"></audio>
+                {{!-- <audio controls src={{audioEigth.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{eigthAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{ninthAlbumImage}}" alt="Card image cap">
-                <div class="overlay">
+                <div class="overlay" data="{{audioNine.preview_url}}">
                 </div>
-                <audio controls src={{audioFour.preview_url}} class="first"></audio>
+                {{!-- <audio controls src={{audioNine.preview_url}} class="first" id="last"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{ninthAlbumName}}</h5>
+                <button type="button" class="btn btn-light btn-circle text-center"><i class="fas fa-plus"></i>
+                <span class="tooltiptext">Add to Playlist</span></button>
             </div>
         </div>
+    </div>
     </div>
