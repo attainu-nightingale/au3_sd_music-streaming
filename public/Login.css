@@ -1,0 +1,66 @@
+body{
+  margin: 0;
+  padding: 0;
+  background:url( http://eskipaper.com/images/background-pictures-8.jpg);
+   
+}
+.login-form{
+  width:300px;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow:hidden;
+}
+.login-form h1{
+  margin-top: 100px;
+  font-family:'Courgette', cursive;
+  color: #fff;
+  font-size:40px;
+}
+
+.login-form input{
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  height: 44px;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family:"montserrat",sans-serif;
+}
+.form-control{
+  margin: 20px 0;
+  background: white;
+  border-radius: 6px;
+}
+.login-btn{
+  margin-top: 60px;
+  margin-bottom: 20px;
+  background: blue;
+  color: #fff;
+  border-radius: 44px;
+  cursor: pointer;
+  transition: 0.8s;
+}
+.login-btn:hover{
+  transform: scale(0.96);
+
+}
+.login-form a{
+  text-decoration: none;
+  color: #fff;
+  font-family:"montserrat",sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  transition: 0.8;
+  display:block;
+}
+.login-btn a:hover{
+  background: rgba(0,0,0,0.3);
+}
+
