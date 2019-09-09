@@ -25,6 +25,7 @@ spotifyApi.clientCredentialsGrant().then(
 );
 
 router.get('/', function (req, res) {
+    // if(req.session.loggedIn==true)
     spotifyApi.getAlbums(['2zkyMw73XzNXUQaXTb4cio', '4ceWEQarPyTyeb9TUeyLOG',
             '2B2gCeKprk9XdOo2w93gkr', '4neocSMt40stXKK2B8Sy2G',
             '6cunQQ7YZisYOoiFu2ywIq', '7LF4N7lvyDhrPBuCJ1rplJ',
