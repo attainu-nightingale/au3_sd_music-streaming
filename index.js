@@ -1,10 +1,10 @@
-var express=require("express");
+var express = require("express");
 var hbs = require('hbs');
 var session = require("express-session");
 var mongoClient = require("mongodb").MongoClient;
 var db;
 
-mongoClient.connect("mongodb://localhost:27017", function(err, client) {
+mongoClient.connect("mongodb://localhost:27017", function (err, client) {
     if (err) throw err;
     db = client.db("musify");
 });
@@ -18,11 +18,14 @@ app.use(
 );
 
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({
+    extended: false
+}));
 
 // load router
 var homeRouter = require('./routes/home');
 
+var playlistRouter = require('./routes/playlist');
 
 // hbs middleware
 app.set('view engine', 'hbs');
@@ -49,80 +52,69 @@ hbs.registerHelper('is', function (parameter, string, options) {
 // use router
 app.use('/', homeRouter);
 
+// playlist router
+app.use("/playlist", playlistRouter)
 
 
-app.get('/playlist', function (req, res) {
-    res.render('playlist', {
-        title: 'Playlist'
-    });
-});
 
 
- 
 
-app.get("/signup", function(req, res) {
-    res.render("signup",  {
+app.get("/signup", function (req, res) {
+    res.render("signup", {
         title: "add Users",
         script: "/signup.js"
     });
 });
 
-app.post("/users/user", function(req, res) {
-    db.collection("users").insertOne(req.body, function(err, result){
+app.post("/users/user", function (req, res) {
+    db.collection("users").insertOne(req.body, function (err, result) {
         if (err) throw err;
         console.log(req.body)
         res.redirect("/login")
     })
 });
-  
- 
-    app.post('/login', function (req, res) {
-        var flag = false;
-        db.collection('users')
-            .find()
-            .toArray(function (error, result) {
-                if (error) {
-                    throw error;
+
+
+app.post('/login', function (req, res) {
+    var flag = false;
+    db.collection('users')
+        .find()
+        .toArray(function (error, result) {
+            if (error) {
+                throw error;
+            }
+            for (var i = 0; i < result.length; i++) {
+                if (req.body.username == result[i].username && req.body.password == result[i].password) {
+                    flag = true;
+                    break;
                 }
-                for (var i = 0; i < result.length; i++) {
-                    if (req.body.username == result[i].username && req.body.password == result[i].password) {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (flag) {
-                    req.session.loggedIn = true;
-                    res.redirect('/');
-                } else {
-                    res.redirect('/signup');
-                }
-            });
-    });
-    
-
-
-
-
-
-
-
-
-
-    app.get("/login", function(req, res) {
-        res.render("login",  {
-            title: "login"
-            
+            }
+            if (flag) {
+                req.session.loggedIn = true;
+                res.redirect('/');
+            } else {
+                res.redirect('/signup');
+            }
         });
-    });
+});
 
-    app.get("/logout", function(req, res)  {
-        req.session.destroy();
-        res.redirect("/login")
-         
-    })
- 
-    
- 
+
+
+app.get("/login", function (req, res) {
+    res.render("login", {
+        title: "login"
+
+    });
+});
+
+app.get("/logout", function (req, res) {
+    req.session.destroy();
+    res.redirect("/login")
+
+})
+
+
+
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('*', function (req, res) {
@@ -130,10 +122,9 @@ app.get('*', function (req, res) {
 
 });
 
- 
-app.listen(3000,function(req,res){
+
+app.listen(3000, function (req, res) {
     console.log("listening at 3000");
-}
-);
+});
 
 module.exports = app;

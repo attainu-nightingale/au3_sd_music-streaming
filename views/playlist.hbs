@@ -1,1 +1,14 @@
-<h1>Welcome to Playlist page</h1>
+<h3 class="mb-4 text-center" style="padding-top: 5rem" id="home">Playlist</h3>
+<div class="row" style="margin-bottom: 8rem">
+    {{#each data }}
+    <div class="col-6 col-sm-4 col-md-4 col-lg-3  my-3  ml-0">
+        <div class="card text-center" style="width: 12rem;">
+            <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+            <div class="overlay" data="{{audioSrc}}">
+            </div>
+            <h5 class="album-name pt-4 pb-4" id="four">{{this.songName}}</h5>
+            <button type="button" class="btn btn-danger delete" value="{{this._id}}">Delete</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
