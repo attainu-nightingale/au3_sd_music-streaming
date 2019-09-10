@@ -12,7 +12,7 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 
 
 // Render Playlist with all songs
-router.get("/playlist", function (req, res) {
+router.get("/", function (req, res) {
     if (req.session.loggedIn) {
         var id = "5d767957238fbb2f6c5bc0e3" // this should come from req.session when user logs in
         db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
@@ -36,7 +36,7 @@ router.get("/playlist", function (req, res) {
 
 
 // Add song to playlist
-router.post('/playlist/add', function (req, res) {
+router.post('/add', function (req, res) {
     var audioSrc = req.body.audioSrc
     var songName = req.body.songName
     var image = req.body.image
