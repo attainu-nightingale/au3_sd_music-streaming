@@ -14,7 +14,7 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 // Render Playlist with all songs
 router.get("/", function (req, res) {
     if (req.session.loggedIn) {
-        var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+        var id = "5d767957238fbb2f6c5bc0e3" // this should come from req.session when user logs in
         db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
             if (err) {
                 return res.status(400).json({ error: 'An error occurred' })
