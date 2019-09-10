@@ -8,7 +8,7 @@
             </div>
             <audio controls src={{this.audioSrc}} class="first"></audio>
             <h5 class="album-name pt-4 pb-4" id="four">{{this.songName}}</h5>
-            <button type="button" class="btn btn-danger" data-id="{{this._id}}">Delete</button>
+            <button type="button" class="btn btn-danger delete" value="{{this._id}}">Delete</button>
         </div>
     </div>
     {{/each}}

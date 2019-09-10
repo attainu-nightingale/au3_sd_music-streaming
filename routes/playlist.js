@@ -5,7 +5,7 @@ var db;
 
 mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
     if (err) throw err;
-    db = client.db('project');
+    db = client.db('musify');
     console.log("DB connected")
 });
 
@@ -13,37 +13,53 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 
 // Render Playlist with all songs
 router.get("/", function (req, res) {
-    db.collection("playlists").find().toArray(function (err, result) {
-        if (err) throw err
-        console.log(result)
-        res.render("playlist", {
-            data: result,
-            title: 'Playlist',
-            style: 'index.css',
+    if (req.session.loggedIn) {
+        var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+        db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
+            if (err) {
+                return res.status(400).json({ error: 'An error occurred' })
+            }
+            res.render("playlist", {
+                data: result.playlist,
+                title: 'Playlist',
+                style: 'index.css',
+                script: "delete.js"
+            })
         })
-    })
+    }
+    else {
+        res.redirect("/login")
+    }
+
 })
+
 
 
 // Add song to playlist
 router.post('/add', function (req, res) {
     var audioSrc = req.body.audioSrc
     var songName = req.body.songName
-    var image = req.body.img
+    var image = req.body.image
+    var _id = new ObjectID()
 
+    var playlistObj = { _id, audioSrc, songName, image }
 
-    db.collection("playlists").insertOne({ audioSrc, songName, image }, function (err, result) {
-        if (err) throw err
+    var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+    db.collection("users").updateOne({ _id: ObjectID(id) }, { $push: { playlist: playlistObj } }, function (err, result) {
+        if (err) {
+            return res.status(400).json({ error: "An error occurred" })
+        }
         res.json({
-            success: "Added successfully"
+            success: "Successfully added"
         })
     })
 })
 
 //Delete song from playlist
-router.delete("/:id", function (req, res) {
-    var { id } = req.params;
-    db.collection("playlists").deleteOne({ _id: ObjectID(id) }, function (err, result) {
+router.delete("/:songId", function (req, res) {
+    var { songId } = req.params;
+    var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+    db.collection("users").updateOne({ _id: ObjectID(id) }, { $pull: { "playlist": { _id: ObjectID(songId) } } }, function (err, result) {
         if (err) throw err
         res.json({
             success: 'Successfully deleted'
