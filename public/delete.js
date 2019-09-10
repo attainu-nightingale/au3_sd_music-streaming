@@ -12,3 +12,8 @@ $(".delete").on("click", function () {
     });
 });
 
+$(".overlay").on('click', function () {
+    var y = event.target.getAttribute('data');
+    player = document.getElementById("audio0");
+    player.setAttribute('src', y);
+});
