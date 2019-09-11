@@ -87,23 +87,15 @@ app.post('/login', function (req, res) {
             for (var i = 0; i < result.length; i++) {
                 if (req.body.username == result[i].username && req.body.password == result[i].password) {
                     flag = true;
-<<<<<<< HEAD
-                    req.user=result[i]._id;
-=======
                     req.user = result[i]._id;
                     console.log(req.user);
->>>>>>> 9f38947d415978e87aa378174ab7903b029afcaf
                     break;
                 }
             }
             if (flag) {
                 req.session.loggedIn = true;
-<<<<<<< HEAD
-                req.session.user=req.user;
-=======
                 req.session.user = req.user;
                 console.log(req.user);
->>>>>>> 9f38947d415978e87aa378174ab7903b029afcaf
                 res.redirect('/');
             } else {
                 res.redirect('/signup');
