@@ -24,3 +24,4 @@ $(".overlay").on('click', function(){
     player.setAttribute('data2',z)
     player.play();
  });
+   

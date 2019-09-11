@@ -25,7 +25,6 @@ spotifyApi.clientCredentialsGrant().then(
 );
 
 router.get('/', function (req, res) {
-    // if(req.session.loggedIn==true)
     spotifyApi.getAlbums(['2zkyMw73XzNXUQaXTb4cio', '4ceWEQarPyTyeb9TUeyLOG',
             '54NUwj7U1MOhA1ZGbnhiMz', '4neocSMt40stXKK2B8Sy2G',
             '6cunQQ7YZisYOoiFu2ywIq', '7LF4N7lvyDhrPBuCJ1rplJ',
@@ -124,6 +123,7 @@ router.get('/', function (req, res) {
                                                                   res.render('index', {
                                                                       title: 'Musify',
                                                                       style: 'index.css',
+                                                                      script: 'addToPlay.js',
                                                                       firstAlbumImage: firstAlbumImage,
                                                                       secondAlbumImage: secondAlbumImage,
                                                                       thirdAlbumImage: thirdAlbumImage,

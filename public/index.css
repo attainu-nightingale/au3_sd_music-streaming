@@ -59,6 +59,7 @@
     position: absolute;
     width: 100%;
     display: block;
+    cursor: pointer;
 
     /* Full height (cover the whole page) */
 
