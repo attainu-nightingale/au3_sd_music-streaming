@@ -14,7 +14,6 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 // Render Playlist with all songs
 router.get("/", function (req, res) {
     if (req.session.loggedIn) {
-        console.log(req.session.user);
         var id = req.session.user; // this should come from req.session when user logs in
         db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
             if (err) {
@@ -61,6 +60,7 @@ router.delete("/:songId", function (req, res) {
     var { songId } = req.params;
     var id = req.session.user; // this should be come from req.session when user login
     db.collection("users").updateOne({ _id: ObjectID(id) }, { $pull: { "playlist": { _id: ObjectID(songId) } } }, function (err, result) {
+        //db.collection("users").deleteOne({_id:require("mongodb").ObjectID(req.params.id)},function(err,result){
         if (err) throw err
         res.json({
             success: 'Successfully deleted'

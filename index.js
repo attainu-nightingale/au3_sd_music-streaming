@@ -24,6 +24,7 @@ app.use(express.urlencoded({
 
 // load router
 var homeRouter = require('./routes/home');
+//var playlistRouter=require('./routes/playlist');
 
 var playlistRouter = require('./routes/playlist');
 
