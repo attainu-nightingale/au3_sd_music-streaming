@@ -86,11 +86,15 @@ app.post('/login', function (req, res) {
             for (var i = 0; i < result.length; i++) {
                 if (req.body.username == result[i].username && req.body.password == result[i].password) {
                     flag = true;
+                    req.user = result[i]._id;
+                    console.log(req.user);
                     break;
                 }
             }
             if (flag) {
                 req.session.loggedIn = true;
+                req.session.user = req.user;
+                console.log(req.user);
                 res.redirect('/');
             } else {
                 res.redirect('/signup');
