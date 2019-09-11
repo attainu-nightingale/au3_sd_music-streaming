@@ -11,7 +11,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0" id="one">
             <div  class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{firstAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioOne.preview_url}}">
+                <div class="overlay" data1="{{firstAlbumImage}}" data2="{{firstAlbumName}}" data="{{audioOne.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioOne.preview_url}} class="second"></audio> --}}
                 <h5 class="album-name pt-4 pb-2">{{firstAlbumName}}</h5>
@@ -22,7 +22,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{secondAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioTwo.preview_url}}">
+                <div class="overlay" data1="{{secondAlbumImage}}" data2="{{secondAlbumName}}" data="{{audioTwo.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioTwo.preview_url}} class="second"></audio> --}}
                 <h5 class="album-name pt-4 pb-2">{{secondAlbumName}}</h5>
@@ -33,7 +33,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{thirdAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioThree.preview_url}}">
+                <div class="overlay" data1="{{thirdAlbumImage}}" data2="{{thirdAlbumName}}" data="{{audioThree.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioThree.preview_url}} class="second"></audio> --}}
                 <h5 class="album-name pt-4 pb-2">{{thirdAlbumName}}</h5>
@@ -46,8 +46,8 @@
     <div class="row mb-5">
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
-                <img class="card-img-top" src="{{fourthAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioFour.preview_url}}">
+                <img class="card-img-top" src="{{fourthAlbumImage}}" id="img" alt="Card image cap">
+                <div class="overlay" data1="{{fourthAlbumImage}}" data2="{{fourthAlbumName}}" data="{{audioFour.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioFour.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4" id="four">{{fourthAlbumName}}</h5>
@@ -58,7 +58,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{fifthAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioFive.preview_url}}">
+                <div class="overlay" data1="{{fifthAlbumImage}}" data2="{{fifthAlbumName}}" data="{{audioFive.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioFive.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{fifthAlbumName}}</h5>
@@ -69,7 +69,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2  mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{sixthAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioSix.preview_url}}">
+                <div class="overlay" data1="{{sixthAlbumImage}}" data2="{{sixthAlbumName}}" data="{{audioSix.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioSix.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4" id="six">{{sixthAlbumName}}</h5>
@@ -80,7 +80,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{seventhAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioSeven.preview_url}}">
+                <div class="overlay" data1="{{seventhAlbumImage}}" data2="{{seventhAlbumName}}"data="{{audioSeven.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioSeven.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-1">{{seventhAlbumName}}</h5>
@@ -91,7 +91,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{eigthAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioEigth.preview_url}}">
+                <div class="overlay" data1="{{eigthAlbumImage}}" data2="{{eigthAlbumName}}" data="{{audioEigth.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioEigth.preview_url}} class="first"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{eigthAlbumName}}</h5>
@@ -102,7 +102,7 @@
         <div class="col-6 col-sm-4 col-md-4 col-lg-2 col-xs-6 mb-2  ml-0">
             <div class="card text-center" style="width: 12rem;">
                 <img class="card-img-top" src="{{ninthAlbumImage}}" alt="Card image cap">
-                <div class="overlay" data="{{audioNine.preview_url}}">
+                <div class="overlay" data1="{{ninthAlbumImage}}" data2="{{ninthAlbumName}}"data="{{audioNine.preview_url}}">
                 </div>
                 {{!-- <audio controls src={{audioNine.preview_url}} class="first" id="last"></audio> --}}
                 <h5 class="album-name pt-4 pb-4">{{ninthAlbumName}}</h5>

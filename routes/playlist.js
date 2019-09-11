@@ -14,7 +14,7 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 // Render Playlist with all songs
 router.get("/", function (req, res) {
     if (req.session.loggedIn) {
-        var id = "5d767957238fbb2f6c5bc0e3" // this should come from req.session when user logs in
+        var id = req.session.user; // this should come from req.session when user logs in
         db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
             if (err) {
                 return res.status(400).json({ error: 'An error occurred' })
@@ -44,7 +44,7 @@ router.post('/add', function (req, res) {
 
     var playlistObj = { _id, audioSrc, songName, image }
 
-    var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+    var id = req.session.user; // this should be come from req.session when user login
     db.collection("users").updateOne({ _id: ObjectID(id) }, { $push: { playlist: playlistObj } }, function (err, result) {
         if (err) {
             return res.status(400).json({ error: "An error occurred" })
@@ -58,8 +58,9 @@ router.post('/add', function (req, res) {
 //Delete song from playlist
 router.delete("/:songId", function (req, res) {
     var { songId } = req.params;
-    var id = "5d767957238fbb2f6c5bc0e3" // this should be come from req.session when user login
+    var id = req.session.user; // this should be come from req.session when user login
     db.collection("users").updateOne({ _id: ObjectID(id) }, { $pull: { "playlist": { _id: ObjectID(songId) } } }, function (err, result) {
+        //db.collection("users").deleteOne({_id:require("mongodb").ObjectID(req.params.id)},function(err,result){
         if (err) throw err
         res.json({
             success: 'Successfully deleted'

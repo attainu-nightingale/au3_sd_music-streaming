@@ -53,13 +53,9 @@ hbs.registerHelper('is', function (parameter, string, options) {
 // use router
 app.use('/', homeRouter);
 
-<<<<<<< HEAD
-//app.use("/playlist", playlistRouter)
-=======
 // playlist router
 app.use("/playlist", playlistRouter)
 
->>>>>>> 70ed1ac15c147d980be0af8cd402ae3b7c7108bb
 
 
 
@@ -91,11 +87,13 @@ app.post('/login', function (req, res) {
             for (var i = 0; i < result.length; i++) {
                 if (req.body.username == result[i].username && req.body.password == result[i].password) {
                     flag = true;
+                    req.user=result[i]._id;
                     break;
                 }
             }
             if (flag) {
                 req.session.loggedIn = true;
+                req.session.user=req.user;
                 res.redirect('/');
             } else {
                 res.redirect('/signup');
