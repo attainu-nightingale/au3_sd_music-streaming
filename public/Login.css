@@ -1,7 +1,7 @@
 body{
   margin: 0;
   padding: 0;
-  background:url( http://eskipaper.com/images/background-pictures-8.jpg);
+  background:url( bgs3.jpg);
   
    
 }
@@ -42,7 +42,7 @@ body{
 .login-btn{
   margin-top: 60px;
   margin-bottom: 20px;
-  background: blue;
+  background: #15d696f5;
   color: #fff;
   border-radius: 44px;
   cursor: pointer;
@@ -67,6 +67,11 @@ body{
 
 #player{
   visibility: hidden;
+}
+#ram{
+  color:rgba(0, 255, 0, 0.932);
+  display: inline;
+  text-decoration: underline;
 }
 
 
