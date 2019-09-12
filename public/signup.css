@@ -1,8 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background:url( http://eskipaper.com/images/background-pictures-8.jpg);
-    
+    background:url( bgs17.jpg );
+    background-repeat:no-repeat;
      
 }
 .signup-form{
@@ -42,7 +42,7 @@ signup-form h1{
 .signup-btn{
     margin-top: 60px;
     margin-bottom: 20px;
-    background: blue;
+    background: #15d696f5;
     color: #fff;
     border-radius: 44px;
     cursor: pointer;
@@ -68,3 +68,9 @@ signup-form h1{
 #player{
     visibility: hidden;
 }
+#ram{
+    color: #06ff44;
+    display: inline;
+    text-decoration: underline;
+  }
+  
