@@ -1,3 +1,4 @@
+{{!-- style for player --}}
 <style>
     #audio0 {
         width: 40%;
@@ -29,7 +30,7 @@
 
     #next {
         position: absolute;
-        left: 70%;
+        left: 72%;
     }
 
     #prev {
@@ -53,15 +54,16 @@
     }
 </style>
 
+{{!-- player hbs --}}
 <div class="fixed-bottom " id="player">
     <div class="container">
         <audio id="audio0" data1="" data2="" src="" controls volume loop preload="auto"></audio>
         {{!-- //<audio id="audio0" src="" controls volume loop preload="auto"></audio> --}}
-        <button type="button" class=" btn-inline" id="prev"><i class="fas fa-backward "></i></button>
-        <button type="button" class=" btn-inline" id="next"><i class="fas fa-forward "></i></button>
-        <button type="button" class=" btn-inline" id="loop"><i class="fas fa-undo"></i></button>
-        <button type="button" class=" btn-inline" id="random"><i class="fas fa-random"></i></button>
-        <button type="submit" class=" btn-inline" id="plus"><i class="fas fa-plus"></i>playlist</button>
+        <button type="button" class=" btn-inline btn-circle" id="prev"><i class="fas fa-backward "></i></button>
+        <button type="button" class=" btn-inline btn-circle" id="next"><i class="fas fa-forward "></i></button>
+        <button type="button" class=" btn-inline btn-circle" id="loop"><i class="fas fa-undo"></i></button>
+        {{!-- <button type="button" class=" btn-inline" id="random"><i class="fas fa-random"></i></button> --}}
+        <button type="submit" class=" btn-inline btn-circle" id="plus"><i class="fas fa-plus"></i></button>
     </div>
 </div>
 

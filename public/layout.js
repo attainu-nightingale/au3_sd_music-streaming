@@ -43,4 +43,32 @@ success:function(data){
 window.location.replace('/playlist');
 });
 
-//to play next song
+// //to play next song
+// $("#next").on("click",function() {
+//     //for(var i=0;i<playlist.length;i++){
+        
+//     $("#audio0")[0].pause();
+//     var i=event.target.getAttribute("data");
+//     //$("#audio0").load.getAttribute(data);
+//     i++;
+//     player.setAttribute("src")
+    
+// //     $("#audio0")[0].load.attr("src");
+// //     $("#audio0")[0].audioSrc = '';
+// //     i++
+// //     }
+//  })
+    
+// $("#prev").on("click",function() {
+//     $("#audio0")[0].pause();
+//     $("#audio0")[0].setAttribute('src') = '';
+//     var index=0;
+//     index--;
+//     if (index == getAttribute("data.length")) {
+//         index = 0;
+//     }
+//     $("#audio0")[0].src = user.playlist[index];
+//     if (playing) {
+//         $("#audio0")[0].play();
+//     }
+// })
