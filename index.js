@@ -63,7 +63,8 @@ app.use("/playlist", playlistRouter)
 app.get("/signup", function (req, res) {
     res.render("signup", {
         title: "add Users",
-        script: "/signup.js"
+        script: "/signup.js",
+        user: req.session.user
     });
 });
 
@@ -107,7 +108,8 @@ app.post('/login', function (req, res) {
 
 app.get("/login", function (req, res) {
     res.render("login", {
-        title: "login"
+        title: "login",
+        user: req.session.user
 
     });
 });
