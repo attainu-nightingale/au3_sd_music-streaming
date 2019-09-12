@@ -24,7 +24,8 @@ router.get("/", function (req, res) {
                 recent:result.recent,
                 title: 'Playlist',
                 style: 'index.css',
-                script: "delete.js"
+                script: "delete.js",
+                user: req.session.user
             })
         })
     }

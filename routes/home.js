@@ -25,6 +25,7 @@ spotifyApi.clientCredentialsGrant().then(
 );
 
 router.get('/', function (req, res) {
+    console.log(req.session.user);
     spotifyApi.getAlbums(['2zkyMw73XzNXUQaXTb4cio', '4ceWEQarPyTyeb9TUeyLOG',
             '54NUwj7U1MOhA1ZGbnhiMz', '4neocSMt40stXKK2B8Sy2G',
             '6cunQQ7YZisYOoiFu2ywIq', '7LF4N7lvyDhrPBuCJ1rplJ',
@@ -150,7 +151,8 @@ router.get('/', function (req, res) {
                                                                       audioSix: resultSix,
                                                                       audioSeven: resultSeven,
                                                                       audioEigth: resultEigth,
-                                                                      audioNine: resultNine
+                                                                      audioNine: resultNine,
+                                                                      user: req.session.user
                                                                   });
 
 
@@ -177,5 +179,16 @@ router.get('/', function (req, res) {
     });
 });
 
+router.get('/search/:data', function (req, res) {
+    console.log('search word' + req.params.data);
+    spotifyApi.searchTracks(req.params.data)
+        .then(function (data) {
+            console.log('Search by' + req.params, data.body);
+            console.log(data.body.tracks);
+            res.send(data.body.tracks.items);
+        }, function (err) {
+            console.error(err);
+        });
+});
 
 module.exports = router;
