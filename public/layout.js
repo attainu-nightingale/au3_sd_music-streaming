@@ -20,7 +20,25 @@ $(".overlay").on('click', function(){
    player.setAttribute('data1',x);
    player.setAttribute('data2',z)
    player.play();
-});
+
+    var data={
+        audioSrc:$("#audio0").attr('src'),
+        image:$("#audio0").attr('data1'),
+        songName:$("#audio0").attr('data2')
+    }
+    $.ajax({
+        type:"POST",
+        url:"/playlist/recent/add",
+        contentType:"application/json",
+        data:JSON.stringify(data),
+        dataType:"json",
+        success:function(data){
+           console.log(data);
+        }
+        });
+})
+
+
 
 //to add the song to playlist from player
 $('#plus').on('click',function(){
