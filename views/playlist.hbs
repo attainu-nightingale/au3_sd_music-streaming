@@ -1,14 +1,29 @@
-<h3 class="mb-4 text-center" style="padding-top: 5rem" id="home">Playlist</h3>
-<div class="row" style="margin-bottom: 8rem">
-    {{#each data }}
-    <div class="col-6 col-sm-4 col-md-4 col-lg-3  my-3  ml-0">
-        <div class="card text-center" style="width: 12rem;">
+     <h3 class="text-center" style="padding-top: 5rem" id="home">Recent played</h3>
+    <div class="row">
+{{#each recent}}
+ <div class="col-6 col-sm-4 col-md-4 col-lg-3  my-3  ml-0">
+        <div class="card text-center" style="width: 16rem;">
             <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
             <div class="overlay" data1="{{this.image}}" data2="{{this.songName}}" data="{{audioSrc}}">
             </div>
             <h5 class="album-name pt-4 pb-4" id="four">{{this.songName}}</h5>
-            <button type="submit" class="btn btn-danger delete" value="{{this._id}}">Delete from playlist</button>
+            <button type="submit" class="btn btn-danger btn-circle delete" value="{{this._id}}"><i class="fas fa-minus"></i></button>
+        </div>
+    </div>
+{{/each}}
+</div>
+   <h3 class="mb-4 text-center" id="home">Playlist</h3>
+   <div class="row" style="margin-bottom: 4rem">
+    {{#each data }}
+    <div class="col-6 col-sm-4 col-md-4 col-lg-3  my-3  ml-0">
+        <div class="card text-center" style="width: 16rem;">
+            <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+            <div class="overlay" data1="{{this.image}}" data2="{{this.songName}}" data="{{audioSrc}}">
+            </div>
+            <h5 class="album-name pt-4 pb-4" id="four">{{this.songName}}</h5>
+            <button type="submit" class="btn btn-circle btn-danger delete" value="{{this._id}}"><i class="fas fa-minus"></i></button>
         </div>
     </div>
     {{/each}}
+</div>
 </div>

@@ -21,9 +21,11 @@ router.get("/", function (req, res) {
             }
             res.render("playlist", {
                 data: result.playlist,
+                recent:result.recent,
                 title: 'Playlist',
                 style: 'index.css',
-                script: "delete.js"
+                script: "delete.js",
+                user: req.session.user
             })
         })
     }
@@ -67,6 +69,38 @@ router.delete("/:songId", function (req, res) {
         })
     })
 })
+
+// Add song to Recent played
+router.post('/recent/add', function (req, res) {
+    var audioSrc = req.body.audioSrc
+    var songName = req.body.songName
+    var image = req.body.image
+    var _id = new ObjectID()
+    var recent = { _id, audioSrc, songName, image }
+    var id = req.session.user; // this should be come from req.session when user login
+
+    db.collection("users").updateOne({ _id: ObjectID(id) }, { $addToSet: { recent: recent} }, function (err, result) {
+        if (err) {
+            return res.status(400).json({ error: "An error occurred" })
+        }
+        res.json({
+            success: "Successfully added"
+        })
+    })    
+})
+
+//Delete song from recent played
+router.delete("/recent/:songId", function (req, res) {
+    var { songId } = req.params;
+    var id = req.session.user; // this should be come from req.session when user login
+    db.collection("users").updateOne({ _id: ObjectID(id) }, { $pull: { "recent": { _id: ObjectID(songId) } } }, function (err, result) {
+        //db.collection("users").deleteOne({_id:require("mongodb").ObjectID(req.params.id)},function(err,result){
+        if (err) throw err
+        res.json({
+         success: 'Successfully deleted'
+             })
+            })  
+         })
 
 
 module.exports = router;
