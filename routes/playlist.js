@@ -24,7 +24,8 @@ router.get("/", function (req, res) {
                 recent:result.recent,
                 title: 'Playlist',
                 style: 'index.css',
-                script: "delete.js"
+                script: "delete.js",
+                user: req.session.user
             })
         })
     }
@@ -100,6 +101,23 @@ router.delete("/recent/:songId", function (req, res) {
              })
             })  
          })
+
+         // Render Playlist with all songs
+router.get("/next", function (req, res) {
+    if (req.session.loggedIn) {
+        var id = req.session.user; // this should come from req.session when user logs in
+        db.collection("users").findOne({ _id: ObjectID(id) }, function (err, result) {
+            if (err) {
+                return res.status(400).json({ error: 'An error occurred' })
+            }
+            res.send(result.playlist)
+        })
+    }
+    else {
+        res.redirect("/login")
+    }
+})
+
 
 
 module.exports = router;
