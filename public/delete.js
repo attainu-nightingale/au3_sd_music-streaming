@@ -11,7 +11,7 @@ $(".delete").on("click", function () {
         }
     });
     location.reload()
-    alert("Deleted successfully");
+    //alert("Deleted successfully");
 });
 
 $(".overlay").on('click', function(){
@@ -39,5 +39,5 @@ $(".delete").on("click", function () {
         }
     });
     location.reload()
-    alert("Deleted successfully");
+   // alert("Deleted successfully");
 });

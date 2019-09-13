@@ -61,36 +61,6 @@ success:function(data){
 window.location.replace('/playlist');
 });
 
-// //to play next song
-// $("#next").on("click",function() {
-//     //for(var i=0;i<playlist.length;i++){
-        
-//     $("#audio0")[0].pause();
-//     var i=event.target.getAttribute("data");
-//     //$("#audio0").load.getAttribute(data);
-//     i++;
-//     player.setAttribute("src")
-    
-// //     $("#audio0")[0].load.attr("src");
-// //     $("#audio0")[0].audioSrc = '';
-// //     i++
-// //     }
-//  })
-    
-// $("#prev").on("click",function() {
-//     $("#audio0")[0].pause();
-//     $("#audio0")[0].setAttribute('src') = '';
-//     var index=0;
-//     index--;
-//     if (index == getAttribute("data.length")) {
-//         index = 0;
-//     }
-//     $("#audio0")[0].src = user.playlist[index];
-//     if (playing) {
-//         $("#audio0")[0].play();
-//     }
-// })
-
 // search-songs
 
      $("#search").on('click', function (e) {
@@ -132,4 +102,51 @@ window.location.replace('/playlist');
               player.setAttribute('data1', x);
               player.setAttribute('data2', z);
               player.play();
+
       });
+
+//to play next song
+
+var i=0;
+$("#next").on("click",function() {
+    i++;
+    $.ajax({ url: "/playlist/next",
+    method: "GET",
+    datatype: "json",
+    success: function (data) {
+        for (var j =i ; j < data.length; j++) {
+            console.log(data);
+            var audio=data[j].audioSrc;
+            player = document.getElementById("audio0");
+            player.getAttribute('src')
+            player.setAttribute('src',audio)
+            player.play();
+            break;
+        }      
+      }
+    })    
+  })
+
+//to play previous song
+
+var z=0; 
+$("#prev").on("click",function() {
+    z++;
+    $.ajax({ url: "/playlist/next",
+    method: "GET",
+    datatype: "json",
+    success: function (data) 
+    {
+       data=data.reverse();
+        for (var x =z; x < data.length; x++) {
+            console.log(data);
+            var audio=data[x].audioSrc;
+            player = document.getElementById("audio0");
+            player.getAttribute('src')
+            player.setAttribute('src',audio)
+            player.play();
+            break;
+        }
+      }
+    })
+})
