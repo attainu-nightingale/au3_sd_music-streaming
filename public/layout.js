@@ -105,8 +105,23 @@ window.location.replace('/playlist');
 
       });
 
-//to play next song
 
+
+
+//player loop
+var x = document.getElementById("audio0");
+
+function enableLoop() {
+  x.loop = true;
+  x.load();
+} 
+
+function disableLoop(){
+   x.loop = false;
+  x.load();
+} 
+
+//to play next song
 var i=0;
 $("#next").on("click",function() {
     i++;
