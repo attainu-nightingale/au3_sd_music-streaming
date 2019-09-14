@@ -3,11 +3,13 @@ var hbs = require('hbs');
 var session = require("express-session");
 var mongoClient = require("mongodb").MongoClient;
 var db;
-
-mongoClient.connect("mongodb://localhost:27017", function (err, client) {
+url = process.env.MONGO_URL ||"mongodb+srv://roshan:9939105936@music-app-db-hexhh.mongodb.net/?retryWrites=true&w=majority";
+mongoClient.connect(url, function (err, client) {
     if (err) throw err;
     db = client.db("musify");
 });
+
+var port = process.env.PORT || 3000;
 
 
 var app = express();
@@ -89,6 +91,7 @@ app.post('/login', function (req, res) {
                 if (req.body.username == result[i].username && req.body.password == result[i].password) {
                     flag = true;
                     req.user = result[i]._id;
+                    req.username = req.body.username;
                     console.log(req.user);
                     break;
                 }
@@ -96,6 +99,7 @@ app.post('/login', function (req, res) {
             if (flag) {
                 req.session.loggedIn = true;
                 req.session.user = req.user;
+                req.session.username = req.username;
                 console.log(req.user);
                 res.redirect('/');
             } else {
@@ -130,7 +134,7 @@ app.get('*', function (req, res) {
 });
 
 
-app.listen(3000, function (req, res) {
+app.listen(port, function (req, res) {
     console.log("listening at 3000");
 });
 

@@ -21,21 +21,21 @@ $(".overlay").on('click', function(){
    player.setAttribute('data2',z)
    player.play();
 
-    var data={
-        audioSrc:$("#audio0").attr('src'),
-        image:$("#audio0").attr('data1'),
-        songName:$("#audio0").attr('data2')
-    }
-    $.ajax({
-        type:"POST",
-        url:"/playlist/recent/add",
-        contentType:"application/json",
-        data:JSON.stringify(data),
-        dataType:"json",
-        success:function(data){
-           console.log(data);
-        }
-        });
+    // var data={
+    //     audioSrc:$("#audio0").attr('src'),
+    //     image:$("#audio0").attr('data1'),
+    //     songName:$("#audio0").attr('data2')
+    // }
+    // $.ajax({
+    //     type:"POST",
+    //     url:"/playlist/recent/add",
+    //     contentType:"application/json",
+    //     data:JSON.stringify(data),
+    //     dataType:"json",
+    //     success:function(data){
+    //        console.log(data);
+    //     }
+    //     });
 })
 
 
@@ -92,7 +92,7 @@ window.location.replace('/playlist');
          });
      });
 
-      $(document).on('click', '.overlay', function () {
+       $(document).on('click', '.overlay', function () {
           console.log('document is always there');
               var x = event.target.getAttribute('data1');
               var y = event.target.getAttribute('data');
@@ -102,6 +102,22 @@ window.location.replace('/playlist');
               player.setAttribute('data1', x);
               player.setAttribute('data2', z);
               player.play();
+
+              var data = {
+                  audioSrc: $("#audio0").attr('src'),
+                  image: $("#audio0").attr('data1'),
+                  songName: $("#audio0").attr('data2')
+              };
+              $.ajax({
+              type: "POST",
+              url: "/playlist/recent/add",
+              contentType: "application/json",
+              data: JSON.stringify(data),
+              dataType: "json",
+              success: function (data) {
+                  console.log(data);
+              }
+              });
 
       });
 
@@ -150,3 +166,11 @@ $("#prev").on("click",function() {
       }
     })
 })
+
+      $('#user').mouseover(function () {
+          $("#show-next").css("display", "inline-block");
+      });
+
+      $('#user').mouseout(function () {
+          $("#show-next").css("display", "none");
+      });

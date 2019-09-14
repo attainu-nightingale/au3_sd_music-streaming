@@ -52,7 +52,11 @@
 }
 
 #home {
-    margin-bottom: 6%;
+    margin-bottom: 2%;
+}
+
+#playlist {
+    margin-top: 1%;
 }
 
 .overlay {

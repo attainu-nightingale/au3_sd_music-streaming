@@ -189,3 +189,7 @@ ul ul a {
 .search-song {
     margin-top: 5%;
 }
+
+#show-next {
+    display: none;
+}

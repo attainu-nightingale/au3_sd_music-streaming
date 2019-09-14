@@ -3,10 +3,12 @@ var mongoClient = require('mongodb').MongoClient;
 var ObjectID = require("mongodb").ObjectID
 var db;
 
-mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+url = "mongodb+srv://roshan:9939105936@music-app-db-hexhh.mongodb.net/?retryWrites=true&w=majority";
+
+mongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
     if (err) throw err;
     db = client.db('musify');
-    console.log("DB connected")
+    console.log("DB connected");
 });
 
 
@@ -19,13 +21,16 @@ router.get("/", function (req, res) {
             if (err) {
                 return res.status(400).json({ error: 'An error occurred' })
             }
+            result.recent.reverse();
+            result.recent.length = 12;
             res.render("playlist", {
                 data: result.playlist,
                 recent:result.recent,
                 title: 'Playlist',
                 style: 'index.css',
                 script: "delete.js",
-                user: req.session.user
+                user: req.session.user,
+                username: req.session.username
             })
         })
     }
