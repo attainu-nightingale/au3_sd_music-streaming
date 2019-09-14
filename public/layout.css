@@ -135,6 +135,25 @@ ul ul a {
     #sidebar.display {
         margin-left: 0;
     }
+
+     #search-keywords {
+         width: 200px;
+     }
+}
+
+@media (max-width: 600px) {
+    #search-keywords {
+        width: 200px!important;
+    }
+    .card {
+        width: 9rem!important;
+    }
+   /* #home {
+       margin-top: 9%!important;
+   } */
+   #layout-row {
+       margin-top: 12%!important;
+   }
 }
 
 @media (min-width: 768px) {
@@ -145,6 +164,7 @@ ul ul a {
     #sidebar.display {
         margin-left: 0;
     }
+
 }
 
 #navbar-top {

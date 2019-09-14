@@ -77,7 +77,7 @@ window.location.replace('/playlist');
                      if (data[i].preview_url === null) {
                          i++;
                      } else {
-                         $('#layout-row').append(`<div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 search-song">
+                         $('#layout-row').append(`<div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 mt-5 search-song">
                             <div class="card text-center" style="width: 12rem;">
                                 <img class="card-img-top" id="songImageOne" src=${data[i].album.images[0].url} alt="Card image cap">
                                 <div class="overlay" data=${data[i].preview_url} data1=${data[i].album.images[0].url}
