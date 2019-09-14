@@ -113,6 +113,7 @@ app.post('/login', function (req, res) {
 app.get("/login", function (req, res) {
     res.render("login", {
         title: "login",
+        style: "login.css",
         user: req.session.user
 
     });
