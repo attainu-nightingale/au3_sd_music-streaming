@@ -61,10 +61,21 @@
         {{!-- //<audio id="audio0" src="" controls volume loop preload="auto"></audio> --}}
         <button type="button" class="btn-circle btn-inline" id="prev"><i class="fas fa-backward "></i></button>
         <button type="button" class="btn-circle btn-inline" id="next"><i class="fas fa-forward "></i></button>
-        <button type="button" class="btn-circle btn-inline" id="loop"><i class="fas fa-undo"></i></button>
+        <button type="button" onclick="enableLoop()" ondblclick="disableLoop()" class="btn-circle btn-inline" id="loop"><i class="fas fa-undo"></i></button>
         {{!-- <button type="button" class="btn-circle btn-inline" id="random"><i class="fas fa-random"></i></button> --}}
         <button type="submit" class="btn-circle btn-inline" id="plus"><i class="fas fa-plus"></i></button>
     </div>
 </div>
+ <script>
+     //player loop
+        var x = document.getElementById("audio0");
 
+        function enableLoop() {
+            x.loop = true;
+        }
+
+        function disableLoop() {
+            x.loop = false;
+        } 
+ </script>
 
