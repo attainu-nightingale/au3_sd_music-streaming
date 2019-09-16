@@ -21,21 +21,21 @@ $(".overlay").on('click', function(){
    player.setAttribute('data2',z)
    player.play();
 
-    var data={
-        audioSrc:$("#audio0").attr('src'),
-        image:$("#audio0").attr('data1'),
-        songName:$("#audio0").attr('data2')
-    }
-    $.ajax({
-        type:"POST",
-        url:"/playlist/recent/add",
-        contentType:"application/json",
-        data:JSON.stringify(data),
-        dataType:"json",
-        success:function(data){
-           console.log(data);
-        }
-        });
+    // var data={
+    //     audioSrc:$("#audio0").attr('src'),
+    //     image:$("#audio0").attr('data1'),
+    //     songName:$("#audio0").attr('data2')
+    // }
+    // $.ajax({
+    //     type:"POST",
+    //     url:"/playlist/recent/add",
+    //     contentType:"application/json",
+    //     data:JSON.stringify(data),
+    //     dataType:"json",
+    //     success:function(data){
+    //        console.log(data);
+    //     }
+    //     });
 })
 
 
@@ -77,7 +77,7 @@ window.location.replace('/playlist');
                      if (data[i].preview_url === null) {
                          i++;
                      } else {
-                         $('#layout-row').append(`<div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 search-song">
+                         $('#layout-row').append(`<div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2 ml-0 mt-5 search-song">
                             <div class="card text-center" style="width: 12rem;">
                                 <img class="card-img-top" id="songImageOne" src=${data[i].album.images[0].url} alt="Card image cap">
                                 <div class="overlay" data=${data[i].preview_url} data1=${data[i].album.images[0].url}
@@ -92,7 +92,7 @@ window.location.replace('/playlist');
          });
      });
 
-      $(document).on('click', '.overlay', function () {
+       $(document).on('click', '.overlay', function () {
           console.log('document is always there');
               var x = event.target.getAttribute('data1');
               var y = event.target.getAttribute('data');
@@ -102,6 +102,22 @@ window.location.replace('/playlist');
               player.setAttribute('data1', x);
               player.setAttribute('data2', z);
               player.play();
+
+              var data = {
+                  audioSrc: $("#audio0").attr('src'),
+                  image: $("#audio0").attr('data1'),
+                  songName: $("#audio0").attr('data2')
+              };
+              $.ajax({
+              type: "POST",
+              url: "/playlist/recent/add",
+              contentType: "application/json",
+              data: JSON.stringify(data),
+              dataType: "json",
+              success: function (data) {
+                  console.log(data);
+              }
+              });
 
       });
 
@@ -165,3 +181,11 @@ $("#prev").on("click",function() {
       }
     })
 })
+
+      $('#user').mouseover(function () {
+          $("#show-next").css("display", "inline-block");
+      });
+
+      $('#user').mouseout(function () {
+          $("#show-next").css("display", "none");
+      });

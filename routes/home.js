@@ -25,7 +25,6 @@ spotifyApi.clientCredentialsGrant().then(
 );
 
 router.get('/', function (req, res) {
-    console.log(req.session.user);
     spotifyApi.getAlbums(['2zkyMw73XzNXUQaXTb4cio', '4ceWEQarPyTyeb9TUeyLOG',
             '54NUwj7U1MOhA1ZGbnhiMz', '4neocSMt40stXKK2B8Sy2G',
             '6cunQQ7YZisYOoiFu2ywIq', '7LF4N7lvyDhrPBuCJ1rplJ',
@@ -79,7 +78,6 @@ router.get('/', function (req, res) {
                                 offset: 1
                                 }, function (err, data) {
                                     if (err) throw err;
-                                    console.log(data.body);
                                     var resultFour = data.body.items[0];
                                     // Get tracks in fifth album
                                      spotifyApi.getAlbumTracks('6cunQQ7YZisYOoiFu2ywIq', {
@@ -87,7 +85,6 @@ router.get('/', function (req, res) {
                                                  offset: 1
                                              }, function (err, data) {
                                                  if (err) throw err;
-                                                 console.log(data.body);
                                                  var resultFive = data.body.items[0];
                                                  // Get tracks in sixth album
                                                  spotifyApi.getAlbumTracks('7LF4N7lvyDhrPBuCJ1rplJ', {
@@ -95,7 +92,6 @@ router.get('/', function (req, res) {
                                                      offset: 1
                                                  }, function (err, data) {
                                                      if (err) throw err;
-                                                     console.log(data.body);
                                                      var resultSix = data.body.items[0];
                                                      // Get tracks in Seventh album
                                                      spotifyApi.getAlbumTracks('6leYdBPs1XzfUgpc8xgeSi', {
@@ -103,7 +99,6 @@ router.get('/', function (req, res) {
                                                          offset: 1
                                                      }, function (err, data) {
                                                          if (err) throw err;
-                                                         console.log(data.body);
                                                          var resultSeven = data.body.items[1];
                                                          // Get tracks in eigth album
                                                          spotifyApi.getAlbumTracks('3RZxrS2dDZlbsYtMRM89v8', {
@@ -111,7 +106,6 @@ router.get('/', function (req, res) {
                                                              offset: 1
                                                          }, function (err, data) {
                                                              if (err) throw err;
-                                                             console.log(data.body);
                                                              var resultEigth = data.body.items[0];
                                                              // Get tracks in ninth album
                                                              spotifyApi.getAlbumTracks('7J5iE51Mk97Mf0BjjwYXUZ', {
@@ -119,7 +113,6 @@ router.get('/', function (req, res) {
                                                                  offset: 1
                                                              }, function (err, data) {
                                                                  if (err) throw err;
-                                                                 console.log(data.body);
                                                                  var resultNine = data.body.items[0];
                                                                   res.render('index', {
                                                                       title: 'Musify',
@@ -152,7 +145,8 @@ router.get('/', function (req, res) {
                                                                       audioSeven: resultSeven,
                                                                       audioEigth: resultEigth,
                                                                       audioNine: resultNine,
-                                                                      user: req.session.user
+                                                                      user: req.session.user,
+                                                                      username: req.session.username
                                                                   });
 
 
@@ -183,8 +177,6 @@ router.get('/search/:data', function (req, res) {
     console.log('search word' + req.params.data);
     spotifyApi.searchTracks(req.params.data)
         .then(function (data) {
-            console.log('Search by' + req.params, data.body);
-            console.log(data.body.tracks);
             res.send(data.body.tracks.items);
         }, function (err) {
             console.error(err);
