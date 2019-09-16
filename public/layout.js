@@ -178,13 +178,12 @@ $("#prev").on("click",function() {
 var x = document.getElementById("audio0");
 
 
-x.addEventListener('click', function(){
+$("#loop").addEventListener('click', function(){
     x.loop = true;
     x.load();
 });
 
-x.addEventListener('dblclick', function(){
+$("#loop").addEventListener('dblclick', function(){
     x.loop = false;
     x.load();
 });
- 
