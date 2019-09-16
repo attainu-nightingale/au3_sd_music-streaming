@@ -174,3 +174,17 @@ $("#prev").on("click",function() {
       $('#user').mouseout(function () {
           $("#show-next").css("display", "none");
       });
+
+var x = document.getElementById("audio0");
+
+
+x.addEventListener('click', function(){
+    x.loop = true;
+    x.load();
+});
+
+x.addEventListener('dblclick', function(){
+    x.loop = false;
+    x.load();
+});
+ 
