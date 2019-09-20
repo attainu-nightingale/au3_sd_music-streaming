@@ -2,14 +2,15 @@ var express = require("express");
 var hbs = require('hbs');
 var session = require("express-session");
 var mongoClient = require("mongodb").MongoClient;
+var url="mongodb+srv://diwakar84:Diwakar1995@cluster0-vssa5.mongodb.net/musify?retryWrites=true&w=majority";
 var db;
 
-mongoClient.connect("mongodb://localhost:27017", function (err, client) {
+mongoClient.connect(url, function (err, client) {
     if (err) throw err;
     db = client.db("musify");
 });
 
-
+var port=process.env.PORT || 3000;
 var app = express();
 app.use(
     session({
@@ -130,7 +131,7 @@ app.get('*', function (req, res) {
 });
 
 
-app.listen(3000, function (req, res) {
+app.listen(port, function (req, res) {
     console.log("listening at 3000");
 });
 
